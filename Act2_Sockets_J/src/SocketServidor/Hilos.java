@@ -12,7 +12,8 @@ public class Hilos implements Runnable{
 	private static int numCliente = 0;
 	private Socket socketAlCliente;
 	private Biblioteca biblioteca;	
-		
+	
+	// Constructor de la clase Hilos
 	public Hilos(Socket socketAlCliente, Biblioteca biblioteca) {
 		numCliente++;
 		hilo = new Thread(this, "Cliente_"+numCliente);
@@ -77,18 +78,18 @@ public class Hilos implements Runnable{
 						tituloLibro = datosLibro[3];
 						precioLibro = datosLibro[4];
 						
-						// Creamos un nuevo objeto libro con los datos que hemos extraÌdo del String recibido del cliente
+						// Creamos un nuevo objeto libro con los datos que hemos extra√≠do del String recibido del cliente
 						Libro nuevoLibro = new Libro (isbnLibro, tituloLibro, autorLibro, precioLibro);
 						
-						// Damos de alta el libro en la biblioteca con el mÈtodo altaLibro(), pas·ndole como argumento
+						// Damos de alta el libro en la biblioteca con el m√©todo altaLibro(), pas√°ndole como argumento
 						// el nuevo libro que hemos creado con los datos que nos ha pasado el cliente
-						biblioteca.aÒadirLibro(nuevoLibro);
+						biblioteca.a√±adirLibro(nuevoLibro);
 						
-						salida.println("El libro que se ha aÒadido es el siguiente:" + nuevoLibro);
+						salida.println("El libro que se ha a√±adido es el siguiente:" + nuevoLibro);
 						break;					
 						
 					case "FIN":
-						salida.println("Fin. Gracias por establecer conexiÛn");
+						salida.println("Fin. Gracias por establecer conexi√≥n");
 						continuar = false;
 						
 						break;
