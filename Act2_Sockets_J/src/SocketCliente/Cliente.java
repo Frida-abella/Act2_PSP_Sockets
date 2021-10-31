@@ -13,20 +13,20 @@ import java.util.Scanner;
 
 
 public class Cliente {
-	
+	//HOLA
 	public static final int PUERTO = 2021;
 	public static final String IP_SERVER = "localhost";
 
 	public static void main(String[] args) {
 		
-		System.out.println("    APLICACIÓN CLIENTE BIBLIOTECA     ");
+		System.out.println("    APLICACIÃ“N CLIENTE BIBLIOTECA     ");
 		System.out.println("--------------------------------------");
 
 		InetSocketAddress direccionServidor = new InetSocketAddress(IP_SERVER, PUERTO);
 		
 		try (Scanner sc = new Scanner(System.in)){
 						
-			System.out.println("CLIENTE: Esperando a que el servidor acepte la conexión");
+			System.out.println("CLIENTE: Esperando a que el servidor acepte la conexiÃ³n");
 			Socket socketAlServidor = new Socket();
 			socketAlServidor.connect(direccionServidor);
 			System.out.println("CLIENTE: Conexion establecida... a " + IP_SERVER + 
@@ -73,7 +73,7 @@ public class Cliente {
 						break;
 						
 					case "2":
-						System.out.println("Escribe el título del libro: ");						
+						System.out.println("Escribe el tÃ­tulo del libro: ");						
 						titulo = sc.nextLine();
 						opcion = "2";
 						
@@ -105,7 +105,7 @@ public class Cliente {
 					case "4":
 						System.out.println("Escribe los datos de la siguiente forma"
 								+ " ----> ISBN-AUTOR-TITULO-PRECIO <----  "
-								+ "del libro que quieres añadir a la biblioteca separado por - ");
+								+ "del libro que quieres aÃ±adir a la biblioteca separado por - ");
 						datosLibro = sc.nextLine();
 						opcion = "4";
 							
@@ -133,7 +133,7 @@ public class Cliente {
 						break;
 						
 					default:
-						System.out.println("Opción incorrecta");
+						System.out.println("OpciÃ³n incorrecta");
 				
 				}
 					
@@ -144,7 +144,7 @@ public class Cliente {
 			socketAlServidor.close();
 			
 		} catch (UnknownHostException e) {
-			System.err.println("CLIENTE: No encuentro el servidor en la dirección" + IP_SERVER);
+			System.err.println("CLIENTE: No encuentro el servidor en la direcciÃ³n" + IP_SERVER);
 			e.printStackTrace();
 		} catch (IOException e) {
 			System.err.println("CLIENTE: Error de entrada/salida");
@@ -169,7 +169,7 @@ public class Cliente {
 		System.out.println("1 = Buscar libro por ISBN");
 		System.out.println("2 = Buscar libro por TITULO");
 		System.out.println("3 = Buscar libros por AUTOR");
-		System.out.println("4 = Añadir libro a la biblioteca");
+		System.out.println("4 = AÃ±adir libro a la biblioteca");
 		System.out.println("FIN = Salir del programa");		
 		System.out.println("--------------------------");		
 	}
