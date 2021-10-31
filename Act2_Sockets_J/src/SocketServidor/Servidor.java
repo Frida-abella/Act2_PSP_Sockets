@@ -42,7 +42,8 @@ public class Servidor {
 				Socket socketAlCliente = servidor.accept();
 				System.out.println("SERVIDOR: peticion numero " + ++peticion + " recibida");
 				/*ABRIMOS UN HILO NUEVO Y LIBERAMOS EL HILO MAIN PARA QUE ATIENDA
-				 *  PETICIONES DE OTROS CLIENTES */				
+				 *  PETICIONES DE OTROS CLIENTES */	
+				// Le pasamos al hilo la conexión(socket) con el cliente y el objeto biblioteca que hemos creado aquí
 				new Hilos(socketAlCliente, biblioteca);
 			}
 			
