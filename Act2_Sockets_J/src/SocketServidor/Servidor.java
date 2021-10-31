@@ -11,7 +11,7 @@ import SocketServidor.Hilos;
 
 public class Servidor {
 	
-	
+	// Declaramos la variable que contiene el puerto del servidor, que será el mismo que le hemos dado al cliente 
 	public static final int PUERTO = 2021;
 	
 	
@@ -19,27 +19,34 @@ public class Servidor {
 	public static void main(String[] args) {	
 		
 		
-		System.out.println("      APLICACI�N DE SERVIDOR BIBLIOTECA     ");
+		System.out.println("      APLICACIÓN DE SERVIDOR BIBLIOTECA     ");
 		System.out.println("-------------------------------------------");		
 		
+		// Creamos un objeto biblioteca y lo inicializamos o cargamos con la colección (lista) de libros preestablecidos que tenemos:
 		Biblioteca biblioteca = new Biblioteca();
 		biblioteca.cargarBiblioteca();
+		
+		// Inicializamos a 0 la variable con el número de petición para que se vaya aumentando en 1 cada vez que un cliente se conecta o realiza petición
 		int peticion = 0;
-				
-		try (ServerSocket servidor = new ServerSocket()){			
+		
+		// Creamos el objeto de tipo ServerSocket, que es el que abre un puerto
+		try (ServerSocket servidor = new ServerSocket()){	
 			InetSocketAddress direccion = new InetSocketAddress(PUERTO);
+			// Decimos a ese socket que escuche peticiones desde el puerto que hemos especificado al cliente 
 			servidor.bind(direccion);			
 
 			System.out.println("SERVIDOR: Esperando peticion por el puerto " + PUERTO);
 			
 			while (true) {
-				//CREA UN SOCKET DIFERENTE POR CADA PETICION DE CLIENTE
+				//CREA UN SOCKET DIFERENTE POR CADA PETICION DE CLIENTE QUE ACEPTA EL OBJETO SERVERSOCKET
 				Socket socketAlCliente = servidor.accept();
 				System.out.println("SERVIDOR: peticion numero " + ++peticion + " recibida");
 				/*ABRIMOS UN HILO NUEVO Y LIBERAMOS EL HILO MAIN PARA QUE ATIENDA
 				 *  PETICIONES DE OTROS CLIENTES */				
 				new Hilos(socketAlCliente, biblioteca);
-			}			
+			}
+			
+			// Capturamos todas las excepciones
 		} catch (IOException e) {
 			System.err.println("SERVIDOR: Error de entrada/salida");
 			e.printStackTrace();
