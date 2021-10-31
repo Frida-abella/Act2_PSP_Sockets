@@ -1,10 +1,12 @@
 package SocketServidor;
 
+// Importamos las diferentes utilidades que usaremos: arrayList, List
 import java.util.ArrayList;
 import java.util.List;
 import SocketServidor.Libro;
 
 
+// Creamos la clase biblioteca, que contendrá un Lista de libros predeterminados y una serie de métodos para manejar esa lista
 
 public class Biblioteca {
 	
@@ -21,6 +23,7 @@ public class Biblioteca {
 	
 	List<Libro> listaLibros = new ArrayList<Libro>();
 	
+	// Con el método cargarBiblioteca() añadimos los libros que hemos creado previamente a la lista.
 	public void cargarBiblioteca() {
 		
 		listaLibros.add(l1);
@@ -33,6 +36,9 @@ public class Biblioteca {
 		
 	}
 	
+	// Este método sirve para buscar un objeto libro al pasarle como parámetro su título. Recorrerá la lista de libros, elemento a elemento, 
+	// y buscará aquel elemento (Libro l) cuyo título sea igual al que se ha pasado como parámetro al método
+	// Devuelve como resultado el objeto libro en cuestión que se haya encontrado
 	public Libro buscarTitulo(String titulo) {
 		Libro resultado = null;
 		for (Libro l : listaLibros) {
@@ -43,7 +49,7 @@ public class Biblioteca {
 		return resultado;
 	}
 	
-	
+	// Este método sirve para buscar libros por su ISBN. Su funcionamiento es igual al de buscarTitulo
 	public Libro buscarISBN(String isbn) {
 		Libro resultado = null;
 		for (Libro l : listaLibros) {
@@ -56,6 +62,8 @@ public class Biblioteca {
 		return resultado;
 	}
 	
+	// Este método busca dentro de la lista de libros de la biblioteca a todos aquellos que tengan como autor al mismo nombre o string que se le ha pasado al método como parámetro.
+	// Devuelve otra Lista de libros con todos aquellos libros que tengan a ese autor 
 	public List<Libro> buscarAutor(String autor) {
 		List<Libro> resultado = new ArrayList<>();
 		
@@ -68,12 +76,14 @@ public class Biblioteca {
 		
 	}
 	
-	public void a�adirLibro (Libro libro) {
+	// El método añadirLibro, recibe como parámetro un objeto de tipo libro y lo añade a la lista de libros mediante .add
+	// Después informa por consola del título del libro que se ha añadido y muestra también la lista entera de libros a la que se ha añadido para comprobar que figura en ella
+	public void añadirLibro (Libro libro) {
 		
 		
 		listaLibros.add(libro);
 		
-		System.out.println("Nuevo libro a�adido: " + libro.getTitulo());
+		System.out.println("Nuevo libro añadido: " + libro.getTitulo());
 		
 		System.out.println(listaLibros);
 
