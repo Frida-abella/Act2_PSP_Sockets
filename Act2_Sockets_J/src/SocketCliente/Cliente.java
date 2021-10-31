@@ -44,8 +44,7 @@ public class Cliente {
 			String isbn = "";
 			String titulo = "";
 			String autor = "";
-			String datosLibro = "";
-			String fin = "";
+			String datosLibro = "";			
 			
 			//Variable que mandamos al servidor a buscar			
 			String buscar;
